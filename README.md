@@ -38,6 +38,10 @@ Shugo Maeda
 
 ![High waterfall](waterfall2.jpg)
 
+## Today's theme
+
+* Giving up
+
 ## What are Refinements?
 
 * Limited monkey patching
