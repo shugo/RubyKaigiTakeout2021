@@ -63,8 +63,8 @@ end
 
 * Refinements don't affect included modules
 * Refinments affect only:
-  * scope where using is called
-  * blocks for Module#refine
+    * scope where using is called
+    * blocks for Module#refine
 * Because scope of refinements should be limited lexically
 * However, it's confusing...
 
@@ -172,6 +172,99 @@ p 'asd'.foo # => depends (not ok)
 ## Solution
 
 * Prohibit include/prepend in refinements!
+
+## Details
+
+* Add a new class Refinement for refinement modules
+* Refinement is a Module
+* Remove Refinement#{include,prepend}
+    * Deprecated warnings in Ruby 3.1
+* Add Refinement#import as an alternative feature
+
+## Refinement#import
+
+* Copy methods of a module into the receiver
+* Refinements are activated in the copied methods
+
+## Example
+
+```ruby
+module DivExt
+  module DivByQuo
+    def /(other) quo(other) end
+  end
+
+  refine Integer do
+    import DivByQuo
+  end
+
+  refine MyInteger do
+    import DivByQuo
+  end
+end
+```
+
+## Why copy?
+
+* Refinements should be limited lexically
+* If we need different refinements, we need different lexical scopes
+* Implementation reason: inline cache
+
+## Limitations
+
+* Constants
+* Only methods written in Ruby
+* Only directly defined methods
+
+## Constants
+
+* Constants are not imported
+* Imported methods can access constants in the original context only
+    * i.e., they cannot access constants of the refinement
+
+## Constants of a refinement?
+
+```ruby
+module A
+  refine String do
+    X = 1 # not defined in the refinement, but in A
+  end
+end
+```
+
+## Only methods written in Ruby
+
+```ruby
+module A
+  refine Integer do
+    include Enumerable #=> ArgumentError
+    # Should it copy C methods without refinements modification?
+  end
+end
+```
+
+## Only directly define methods
+
+```ruby
+module A
+  def foo; puts "foo" end
+end
+
+module B
+  def bar; puts "bar" end
+end
+
+module C
+  refine Integer do
+    import B
+    # Should it copy A#foo?
+  end
+end
+
+using C
+1.bar #=> bar
+1.foo #=> NoMethodError
+```
 
 ## Summary
 
