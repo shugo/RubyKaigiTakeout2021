@@ -314,6 +314,13 @@ end
     * Only Ruby methods
     * Only directly define methods
 
+## How to help rspec-parameterized
+
+* Should Refinement#import copy C methods without refinements modification?
+    * alias_method_chain can be used instead of prepend
+* Or dirty code for a dirty job:
+  `Module.instance_method(:include).bind(self).call(TableSyntaxImplement)`
+
 ## Summary
 
 * include/prepend in refinements will be prohibited
