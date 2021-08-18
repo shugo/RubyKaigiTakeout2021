@@ -14,6 +14,30 @@ Shugo Maeda
 * Director at Network Applied Communication Laboratory Ltd.
 * Secretary General at Ruby Association
 
+## Sapporo RubyKaigi 2012
+
+![Sapporo RubyKaigi 2012](sapporo2012.jpg)
+
+## Yamame in Shimane 2021 (farm raised?)
+
+![Yamame](yamame.jpg)
+
+## Yamame in Shimane 2021 (wild?)
+
+![Yamame](yamame2.jpg)
+
+## Gogi (Iwana) in Shimane 2021 (Iwana)
+
+![Gogi](gogi.jpg)
+
+## Low waterfall
+
+![Low waterfall](waterfall.jpg)
+
+## High waterfall
+
+![High waterfall](waterfall.jpg)
+
 ## What are Refinements?
 
 * Limited monkey patching
