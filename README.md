@@ -353,7 +353,7 @@ end
 
 * include/prepend in refinements will be prohibited
 * Refinement#import will be introduced instead
-* rspec-parameterized may die
+* rspec-parameterized may get broken
 
 ## Thank you!
 
