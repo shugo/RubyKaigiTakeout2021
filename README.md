@@ -213,7 +213,7 @@ end
 ## Limitations
 
 * Constants
-* Only methods written in Ruby
+* Only Ruby methods
 * Only directly defined methods
 
 ## Constants
@@ -232,7 +232,7 @@ module A
 end
 ```
 
-## Only methods written in Ruby
+## Only Ruby methods
 
 ```ruby
 module A
@@ -266,8 +266,61 @@ using C
 1.foo #=> NoMethodError
 ```
 
+## Use case in a real-world application
+
+![Comment by matsuda](comment_by_matsuda.png)
+
+## Can Refinement#import be used instead?
+
+```ruby
+module TableSyntax
+  refine Object do
+    include TableSyntaxImplement
+  end
+
+  if Gem::Version.create(RUBY_VERSION) >= Gem::Version.create("2.4.0")
+    refine Integer do
+      include TableSyntaxImplement
+    end
+  else
+    refine Fixnum do
+      include TableSyntaxImplement
+    end
+
+    refine Bignum do
+      include TableSyntaxImplement
+    end
+  end
+```    
+
+## NO!!!
+
+```ruby
+module TableSyntaxImplement
+  extend BindingNinja
+
+  def |(where_binding, other)
+    ...
+  end
+  auto_inject_binding :|
+end
+```
+
+## What is auto_inject_binding?
+
+* Written in C (or Java)
+* Prepend a module to pass caller bindings
+* Recall the following limitations of Refinement#import
+    * Only Ruby methods
+    * Only directly define methods
+
 ## Summary
 
 * include/prepend in refinements will be prohibited
 * Refinement#import will be introduced instead
-* binding_ninja may die
+* rspec-parameterized may die
+
+## Thank you!
+
+* Any questions?
+* Feedback is welcome at https://bugs.ruby-lang.org/issues/17429
