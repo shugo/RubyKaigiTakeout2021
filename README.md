@@ -36,7 +36,7 @@ Shugo Maeda
 
 ## High waterfall
 
-![High waterfall](waterfall.jpg)
+![High waterfall](waterfall2.jpg)
 
 ## What are Refinements?
 
