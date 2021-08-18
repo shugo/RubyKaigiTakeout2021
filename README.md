@@ -30,9 +30,13 @@ Shugo Maeda
 
 ![Gogi](gogi.jpg)
 
-## Low waterfall
+## Self-made artificial fly
 
-![Low waterfall](waterfall.jpg)
+![Artificial fly](artificial_fly.jpg)
+
+## Waterfall
+
+![Waterfall](waterfall.jpg)
 
 ## High waterfall
 
