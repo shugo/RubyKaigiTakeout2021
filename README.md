@@ -26,7 +26,7 @@ Shugo Maeda
 
 ![Yamame](yamame2.jpg)
 
-## Gogi (Iwana) in Shimane 2021 (Iwana)
+## Gogi (Iwana) in Shimane 2021
 
 ![Gogi](gogi.jpg)
 
