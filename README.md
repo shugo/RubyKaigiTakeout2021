@@ -275,7 +275,7 @@ module A
 end
 ```
 
-## Only directly define methods
+## Only directly defined methods
 
 ```ruby
 module A
@@ -344,7 +344,7 @@ end
 * Prepend a module to pass caller bindings
 * Recall the following limitations of Refinement#import
     * Only Ruby methods
-    * Only directly define methods
+    * Only directly defined methods
 
 ## How to help rspec-parameterized
 
