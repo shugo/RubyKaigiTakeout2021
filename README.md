@@ -94,7 +94,7 @@ end
 ## Problem
 
 * Refinements don't affect included modules
-* Refinments affect only:
+* Refinements affect only:
     * scope where using is called
     * blocks for Module#refine
 * Because scope of refinements should be limited lexically
