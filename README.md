@@ -269,7 +269,7 @@ end
 ```ruby
 module A
   refine Integer do
-    include Enumerable #=> ArgumentError
+    import Enumerable #=> ArgumentError
     # Should it copy C methods without refinements modification?
   end
 end
@@ -283,6 +283,7 @@ module A
 end
 
 module B
+  include A
   def bar; puts "bar" end
 end
 
